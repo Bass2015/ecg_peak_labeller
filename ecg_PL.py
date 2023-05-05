@@ -17,7 +17,10 @@ def get_ecg_signal(filepath):
 
 def plot_signal(signal):
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x=np.arange(len(signal)), y= signal, line={'width':0.9, 'color':'blue'}))
+    fig.add_trace(go.Scatter(x=np.arange(len(signal)), 
+                             y= signal, 
+                             line={'width':0.9, 'color':'blue'}, 
+                             name='ECG signal'))
     peaks = st.session_state.get('peaks', [])
     fig.add_trace(go.Scatter(x=peaks, 
                              y= signal[peaks], 
@@ -27,7 +30,8 @@ def plot_signal(signal):
                                  'size': 12,
                                  'line': {'width':2, 'color':'red'},
                                  'color':'white',
-                             }))
+                             }, 
+                             name='Labeled peak'))
     fig.update_layout(hovermode='closest')
     return fig
 
