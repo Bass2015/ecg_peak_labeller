@@ -20,8 +20,7 @@ Welcome to the ECG Peak Labeller! This is a tool designed to help you identify a
 1. Run `streamlit run ecg_PL.py`
 2. Select one of the unlabeled ECG signals on the drop down box.
 3. Click on the peaks in the plot. Each click will mark a peak with a red circle and its index will be displayed on the bottom of the plot.
-4. Due to some limitations, at the moment you have to click two times on the chart.
-5. You can select an area to zoom in, in case you need more precission.
+5. If you need more precission, you can select an area to zoom in.
 6. Once all peaks have been identified, click on "Save Peaks". The list of peaks will be saved to a numpy array and exported to a the pickle file.
 7. Once peaks are saved, the ECG is ticked as "Labeled", so it won't show in the dropdown.
 8. Click on "Clear peaks" to clear the plot and start over.

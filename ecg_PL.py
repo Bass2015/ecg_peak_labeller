@@ -46,7 +46,9 @@ def capture_click(plot):
     selected_point = plotly_events(plot, override_width=1000, click_event=True)
     if len(selected_point) != 0:
         st.session_state['peaks'].append(selected_point[0]['x'])
-    st.session_state['peaks'].sort()
+        st.session_state['peaks'].sort()
+        st.experimental_rerun()
+
 
 def peak_selection_form():
     with st.form('Peak selection', clear_on_submit=True):
