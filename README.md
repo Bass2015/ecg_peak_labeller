@@ -12,7 +12,7 @@ Welcome to the ECG Peak Labeller! This is a tool designed to help you identify a
   
 ## Installation 🔧
 
-1. Clone the repository: `git clone https://github.com/<username>/<repository>.git`
+1. Clone the repository: `git clone https://github.com/Bass2015/ecg_peak_labeller.git`
 2. Install the dependencies: `pip install -r requirements.txt`
 
 ## Usage 🚀
