@@ -27,6 +27,8 @@ Welcome to the ECG Peak Labeller! This is a tool designed to help you identify a
 
 ## Example 🎉
 
+The example ECG signal is taken from the [Brno University of Technology Smartphone PPG Database](https://physionet.org/content/butppg/1.0.0/)
+
 ## License 📜
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
