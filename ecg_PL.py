@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 import data_io
 import wfdb
 from streamlit_plotly_events import plotly_events
+import io
 
 def plot_signal(signal):
     """Makes the plotly Figure to display a signal. 
@@ -51,16 +52,15 @@ def capture_click(figure):
 def peak_selection_form(col):
     """Shows the selected peaks. The button calls a method to save
     the list"""
-    with col.form('Peak selection', clear_on_submit=True):
+    with st.form('Peaks_form'):
         peak_idx = st.text_area("Peak indeces", 
                                 st.session_state['peaks'], 
                                 disabled=True)
-        # st.multiselect('Peak indeces', 
-        #                 st.session_state['peaks'], 
-        #                 default=st.session_state['peaks'],
-        #                 key='peak_multiselect')
-        st.download_button('Download', np.savetxt(np.asarray(peak_idx)))
-        # st.form_submit_button('Save', on_click=save_peaks, kwargs={'peaks':np.asarray(peak_idx)})
+        
+        if len(st.session_state['peaks']) > 0:
+            peak_array = np.asarray(st.session_state['peaks'])
+            
+        st.form_submit_button('Save', on_click=data_io.save_peaks, kwargs={'peaks':peak_array if len(st.session_state['peaks']) > 0 else None})
 
 def clear_peaks():
     peaks = st.session_state.get('peaks', None)
@@ -81,7 +81,6 @@ def header_line():
 
 if __name__ == '__main__':
     st.set_page_config(layout='wide')
-    # st.session_state['records_df'] = pd.read_pickle('records_df.pkl')
     col = header_line()
     st.session_state['signal'] = st.session_state.get('signal',
                                   np.loadtxt('example_signal.txt') )
